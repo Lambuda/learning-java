@@ -1,17 +1,14 @@
-target
+# Maven #
+target/
 
-.classpath
-
-.project
-
+# IDEA #
+.idea/
 *.iml
 
-*.log
-
-.settings 
-
+# Eclipse #
+.settings/
+.classpath
 .project
-
+*.log
 *.bat
-
 .svn*
