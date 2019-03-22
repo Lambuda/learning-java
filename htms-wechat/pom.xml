@@ -151,6 +151,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <!--RSA 非对称加密-->
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.60</version>
+        </dependency>
+
     </dependencies>
 
     <build>
