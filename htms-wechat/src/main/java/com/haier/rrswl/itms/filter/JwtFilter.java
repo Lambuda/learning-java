@@ -2,7 +2,6 @@ package com.haier.rrswl.itms.filter;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureException;
 import org.springframework.web.filter.GenericFilterBean;
 
 import javax.servlet.FilterChain;
@@ -44,21 +43,17 @@ public class JwtFilter extends GenericFilterBean {
         if ("OPTIONS".equals(request.getMethod())) {
             response.setStatus(HttpServletResponse.SC_OK);
             chain.doFilter(req, res);
-        }else {
+        } else {
             // 认证 token 规则
             if (authHeader == null || !authHeader.startsWith(AUTH_HEADER)) {
                 throw new ServletException("认证 token 失败");
             }
             // 根据规则 获取正确的 token
             final String token = authHeader.substring(6);
-            try {
-                // Use JWT parser to check if the signature is valid with the Key "secretkey"
-                final Claims claims = Jwts.parser().setSigningKey("secretkey").parseClaimsJws(token).getBody();
-                // Add the claim to request header
-                request.setAttribute("claims", claims);
-            } catch (final SignatureException e) {
-                e.printStackTrace();
-            }
+            // Use JWT parser to check if the signature is valid with the Key "secretkey"
+            final Claims claims = Jwts.parser().setSigningKey("secretkey").parseClaimsJws(token).getBody();
+            // Add the claim to request header
+            request.setAttribute("claims", claims);
             chain.doFilter(req, res);
         }
     }
