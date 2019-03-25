@@ -20,7 +20,7 @@ public class LimiterController {
     private int count;
 
     // 10 秒中，可以访问10次
-    @RateLimit(key = "LimiterController.luaLimiter", time = "10", count = "10")
+    @RateLimit(key = "luaLimiter", time = "10", count = "10")
     @GetMapping("/test")
     @ResponseBody
     public String luaLimiter() {

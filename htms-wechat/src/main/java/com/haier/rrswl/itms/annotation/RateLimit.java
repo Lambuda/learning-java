@@ -23,7 +23,7 @@ public @interface RateLimit {
     String key() default "";
 
     /**
-     * 限流时间
+     * 限流时间 单位 秒
      *
      * @return
      */
