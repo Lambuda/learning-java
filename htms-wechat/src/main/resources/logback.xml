@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<jmxConfigurator />    
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- 典型的日志pattern -->
+		<encoder>
+			<pattern>%date{HH:mm:ss.SSS} [%thread] %-5level %c.%M:%L - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+ 
+	<logger name="org.springframework">
+		<level value="ERROR" />
+	</logger>
+	<logger name="jdbc.sqltiming">
+		<level value="info" />
+	</logger>
+	<logger name="jdbc.connection">
+		<level value="ERROR" />
+	</logger>
+	<logger name="jdbc.resultset">
+		<level value="ERROR" />
+	</logger>
+	<logger name="jdbc.audit">
+		<level value="ERROR" />
+	</logger>
+	<logger name="jdbc.sqlonly">
+		<level value="ERROR" />
+	</logger>
+	<logger name="jdbc.resultsettable" additivity="false">
+		<level value="ERROR" />
+		<appender-ref ref="console" />
+	</logger>
+	<logger name="com.alibaba.dubbo">
+		<level value="ERROR" />
+	</logger>
+	<logger name="org.apache.zookeeper">
+		<level value="ERROR" />
+	</logger>
+	<logger name="com.dangdang.config">
+		<level value="ERROR" />
+	</logger>
+	<logger name="com.dangdang.config">
+		<level value="ERROR" />
+	</logger>
+	<logger name="ch.qos.logback">
+		<level value="ERROR" />
+	</logger>
+	
+	<root level="INFO">
+		<appender-ref ref="console" />
+	</root>
+</configuration>
